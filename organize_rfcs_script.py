@@ -243,7 +243,7 @@ def store_cosigns(old_comment_id, new_comment_id, old_DB, new_DB):
             new_author_id = get_user_id(username, new_DB)
             if new_author_id is None:
                 # insert first
-                new_author_id = move_author_info(username, new_DB)
+                new_author_id = move_author_info(username, old_DB, new_DB)
 
             insert_command = " insert into website_comment_cosigners (comment_id, commentauthor_id)\
                                             values (%s, %s)"
